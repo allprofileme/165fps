@@ -1,0 +1,59 @@
+Enter<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>165 FPS Booster | Walaa Nehad</title>
+    <style>
+        :root { --main-color: #00e5ff; --bg-dark: #0a0a0a; --tg-color: #24A1DE; }
+        body { background: var(--bg-dark); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; overflow-x: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 25px; width: 85%; max-width: 450px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); border-top: 1px solid var(--main-color); }
+        h2 { color: var(--main-color); font-size: 28px; margin-bottom: 5px; text-shadow: 0 0 20px rgba(0, 229, 255, 0.5); }
+        p { font-size: 14px; opacity: 0.7; margin-bottom: 30px; }
+        .upload-area { border: 2px dashed rgba(0, 229, 255, 0.3); padding: 40px 20px; border-radius: 20px; cursor: pointer; transition: 0.3s; margin-bottom: 25px; position: relative; }
+        .upload-area:hover { background: rgba(0, 229, 255, 0.05); border-color: var(--main-color); }
+        .btn-boost { background: var(--main-color); color: #000; border: none; padding: 15px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2); }
+        .btn-boost:active { transform: scale(0.98); }
+        .channel-btn { background: transparent; border: 1.5px solid var(--tg-color); color: var(--tg-color); padding: 12px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; margin-top: 20px; font-weight: 600; transition: 0.3s; }
+        .channel-btn:hover { background: var(--tg-color); color: white; box-shadow: 0 0 15px var(--tg-color); }
+        .footer { margin-top: 30px; font-size: 10px; opacity: 0.3; text-transform: uppercase; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        <h2>165 FPS BOOSTER</h2>
+        <p>قم بتحويل فيديوهاتك إلى سلاسة 165 فريم حقيقي</p>
+        
+        <div class="upload-area" onclick="document.getElementById('v-file').click()">
+            <span id="file-name">اضغط لاختيار فيديو (أي صيغة)</span>
+            <input type="file" id="v-file" hidden accept="video/*" onchange="updateName()">
+        </div>
+
+        <button class="btn-boost" onclick="startProcess()">بدء التحويل بالذكاء الاصطناعي</button>
+        
+        <a href="https://t.me/WalaaNehad" class="channel-btn">
+             قناتي على تلغرام 🦅
+        </a>
+
+        <div class="footer">Walaa Nehad © 2026</div>
+    </div>
+
+    <script>
+        function updateName() {
+            const input = document.getElementById('v-file');
+            const fileName = input.files[0] ? input.files[0].name : "اضغط لاختيار فيديو";
+            document.getElementById('file-name').innerText = fileName;
+        }
+
+        function startProcess() {
+            const file = document.getElementById('v-file').files[0];
+            if(!file) {
+                alert("يرجى اختيار ملف أولاً!");
+                return;
+            }
+            alert("ملاحظة: بما أننا نستخدم استضافة مجانية، يرجى رفع الفيديو في مجلد 'input' بمستودع GitHub لتفعيل المعالجة التلقائية.");
+        }
+    </script>
+</body>
+</html>
