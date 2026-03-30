@@ -1,29 +1,25 @@
-Entername: Video 165FPS Processor
+name: Video 165FPS Processor
 on:
   push:
     paths:
-      - 'input/**' # سيبدأ العمل فوراً عند رفع أي فيديو لمجلد input
+      - 'input/**'
 
 jobs:
   boost_fps:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Install FFmpeg & Tools
-        run: |
-          sudo apt update
-          sudo apt install -y ffmpeg
+      - name: Install FFmpeg
+        run: sudo apt update && sudo apt install -y ffmpeg
 
-      - name: Process Video to 165 FPS
+      - name: Process Video
         run: |
           mkdir -p output
-          # هذا الأمر يحول الفيديو لسلاسة 165 فريم حقيقي
-          ffmpeg -i input/* -filter:v "minterpolate=fps=165:mi_mode=mci:mc_mode=aobmc:me_mode=bidir" -c:a copy output/video_165fps.mp4
+          ffmpeg -i input/* -filter:v "minterpolate=fps=165:mi_mode=mci" -c:a copy output/result.mp4
 
-      - name: Upload Finished Video
+      - name: Upload Result
         uses: actions/upload-artifact@v3
         with:
-          name: 165FPS-Video-Result
-          path: output/video_165fps.mp4
+          name: 165FPS-Video
+          path: output/result.mp4
